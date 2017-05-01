@@ -37,6 +37,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'rhysd/vim-crystal'
+Plug 'pivotal/tmux-config'
 call plug#end()
 " end vim-plug
 
@@ -56,6 +57,10 @@ inoremap jj <ESC>
 set colorcolumn=81
 set cursorline
 highlight ColorColumn ctermbg=183
+
+" Wrap on 80 character column (to match guide above)
+set wrap
+set textwidth=80
 
 " Disable up, down, left, right
 noremap <Up> <NOP>
