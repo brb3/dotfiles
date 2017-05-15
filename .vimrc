@@ -38,6 +38,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'rhysd/vim-crystal'
 Plug 'pivotal/tmux-config'
+Plug 'vimwiki/vimwiki'
+Plug 'arcticicestudio/nord-vim'
+Plug 'ervandew/supertab'
 call plug#end()
 " end vim-plug
 
@@ -45,7 +48,7 @@ call plug#end()
 let g:ctrlp_map = 'mm'
 
 " Colorscheme config
-colorscheme 1989
+colorscheme nord
 
 " NERDTree config
 map <C-n> :NERDTreeToggle<CR>
@@ -56,7 +59,7 @@ inoremap jj <ESC>
 " Highlight for color and column
 set colorcolumn=81
 set cursorline
-highlight ColorColumn ctermbg=183
+highlight ColorColumn ctermbg=242
 
 " Wrap on 80 character column (to match guide above)
 set wrap
@@ -68,6 +71,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Make <Enter> select autocomplete suggestion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " ---- Language specific ----
 " Crystal
 autocmd Filetype crystal setlocal ts=2 sw=2
@@ -77,3 +83,6 @@ autocmd Filetype ruby setlocal ts=2 sw=2
 
 " PHP
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+" Make
+autocmd FileType make setlocal noexpandtab
